@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<h2>
+  <strong></strong></h2>
+<h1>
+  <strong></strong>
+  <%= @post.title %>
+</h1>
+<h2>
+  <strong></strong>
+  <%= @post.subtitle %>
+</h2>
+<h3>
+  <strong></strong>
+  <%= @post.lead %>
+</h3>
+
+<!--       <td><%= @post.image.metadata %></td> -->
+      <td><%= image_tag(@post.image.variant(resize: "1100x700^")) %></td>
+
+
+  <strong></strong>
+  <%= @post.content %>
+</p>
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+
+<h2>Comments</h2>
+<%= render @post.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
