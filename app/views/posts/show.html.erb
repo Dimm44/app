@@ -21,7 +21,7 @@
 <!--       <td><%= @post.image.metadata %></td> -->
       <td><%= image_tag(@post.image.variant(resize: "1100x700^")) %></td>
 
-
+ <p>Tags: <%= @post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></p>
   <strong></strong>
   <%= @post.content %>
 </p>

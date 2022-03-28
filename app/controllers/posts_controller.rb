@@ -4,7 +4,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    if params[:tag]
+    @posts = Post.tagged_with(params[:tag])
+    else
     @posts = Post.all.with_rich_text_content
+    end
   end
 
   # GET /posts/1
@@ -69,7 +73,7 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
    def post_params
-     params.require(:post).permit(:title, :subtitle, :lead, :content, :image, :user_id, :status, files: [] )
+     params.require(:post).permit(:title, :subtitle, :lead, :tag_list, :content, :image, :user_id, :status, files: [] )
    end
 
 
