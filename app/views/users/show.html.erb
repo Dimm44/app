@@ -7,7 +7,7 @@
   <strong>Name:</strong>
   <%= @user.name %>
 </p>
-
+<!-- 
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
@@ -17,12 +17,19 @@
   <strong>Password:</strong>
   <%= @user.password %>
 </p>
-
+ -->
 <p>
   <strong>Bio:</strong>
   <%= @user.bio %>
 </p>
 
+<p>
+  <strong>Posts:</strong>
+  <%= @user.name %> has <%= @user.posts.count %>  articles and counting!
 
+  <% @user.posts.each do |posts| %>
+  <%= link_to posts.title, posts %>
+</p>
+   <% end %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
